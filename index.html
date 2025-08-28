@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparky AI - AI Marketing Assistant</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E0013F',
+                        secondary: '#7600AB',
+                        dark: '#182D40',
+                        gray: '#4F5F6F',
+                        lightgray: '#A6ACBE',
+                        bglight: '#F5F7F9'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-white">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex justify-between items-center">
+                <!-- Logo with enhanced styling -->
+                <a href="#" class="flex items-center space-x-2">
+                    <img src="img/logo.png" alt="Sparky AI Logo" class="h-12 w-auto transition-transform duration-300 hover:scale-105">
+                    <!-- <span class="font-bold text-xl text-gradient bg-gradient-to-r from-primary to-secondary hidden sm:inline-block">Sparky AI</span> -->
+                </a>
+                
+                <!-- Mobile Menu Button with improved styling -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none hover:text-primary transition-colors duration-300">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                
+                <!-- Desktop Navigation with enhanced styling -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Pricing</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Resources</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Testimonials</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">FAQ</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Login</a>
+                    <a href="#" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">Get Started</a>
+                </div>
+            </nav>
+            
+            <!-- Mobile Navigation Menu with improved styling -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4 border-t pt-4 mt-2">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Pricing</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Resources</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Testimonials</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">FAQ</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Blog</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors duration-300 font-medium">Login</a>
+                    <a href="#" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300 text-center transform hover:-translate-y-1">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 md:py-20 relative overflow-hidden">
+        <!-- Background Elements -->
+         <div class="py-12 md:py-20">
+   <div class="absolute inset-0 z-0 py-12 md:py-20">
+            <!-- Background Image -->
+            <img src="img/hero-bg.png" alt="" class="absolute w-full h-full object-cover">
+            
+            <!-- Decorative Elements -->
+            <!-- <div class="absolute top-20 left-10 w-64 h-64 bg-primary opacity-10 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-80 h-80 bg-secondary opacity-10 rounded-full filter blur-3xl"></div>
+            <div class="absolute top-1/3 right-1/4 w-40 h-40 bg-primary opacity-5 rounded-full filter blur-xl"></div> -->
+        </div>
+         </div>
+     
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <!-- User Avatars -->
+            <!-- <div class="flex justify-center mb-8">
+                <div class="relative inline-flex">
+                    <div class="absolute -top-10 -left-16 md:-left-24 w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-white shadow-lg overflow-hidden animate-fade-in">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -top-16 left-8 w-14 h-14 md:w-16 md:h-16 rounded-full border-4 border-white shadow-lg overflow-hidden animate-fade-in-delay">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -top-4 left-24 md:left-32 w-12 h-12 md:w-14 md:h-14 rounded-full border-4 border-white shadow-lg overflow-hidden animate-fade-in-delay-2">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div> -->
+            
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 font-inter leading-tight animate-fade-in">
+                Hire AI Marketer For Your Team
+            </h1>
+            <h2 class="text-3xl md:text-5xl font-semibold mb-6 bg-gradient-to-r from-primary to-secondary inline-block text-transparent bg-clip-text animate-fade-in-delay">
+                Facebook Posts
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 animate-fade-in-delay-2">
+                Create human-quality blog posts, SEO articles, news, press releases, and more in seconds
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+                <a href="#" class="bg-gradient-to-r from-primary to-secondary text-white px-10 py-4 rounded-full font-medium hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg w-full sm:w-auto">
+                    <i class="fas fa-pen-fancy mr-2"></i> Start Writing Free
+                </a>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div class="flex flex-wrap justify-center items-center gap-4 text-sm text-gray-500 animate-fade-in-delay-2">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-primary mr-2"></i>
+                    <span>No credit card required</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-primary mr-2"></i>
+                    <span>Cancel anytime</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-primary mr-2"></i>
+                    <span>24/7 support</span>
+                </div>
+            </div>
+        </div>
+     </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">AI Marketing That Can Help You</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Sparky AI provides powerful tools to streamline your Facebook marketing efforts and boost your results.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Feature Card 1 -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-pen-fancy text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Content Creation</h3>
+                        <p class="text-gray-600">Generate engaging Facebook posts that resonate with your audience in seconds.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature Card 2 -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-bullseye text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Audience Targeting</h3>
+                        <p class="text-gray-600">Create content tailored to your specific Facebook audience demographics and interests.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature Card 3 -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-blue-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Performance Analytics</h3>
+                        <p class="text-gray-600">Track and analyze the performance of your AI-generated Facebook content.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature Image Section -->
+            <div class="mt-20 max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <div class="inline-block bg-primary/10 text-primary font-medium px-4 py-2 rounded-full text-sm mb-6">AI-Powered Marketing</div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">AI Marketing Pro: The Solution For You</h3>
+                        <p class="text-gray-600 mb-6">Our AI marketing assistant helps you create engaging Facebook posts that drive engagement and conversions. Save time and resources while improving your social media performance.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Generate posts in seconds</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Tailored to your brand voice</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Optimized for engagement</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-6 flex items-center justify-center">
+                        <img src="https://placehold.co/600x400/f5f5f5/e0013f?text=AI+Marketing+Dashboard" alt="AI Marketing Dashboard" class="rounded-lg shadow-md max-w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-bglight">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">AI Marketing Pro: The Solution For You</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Our platform makes it easy to create, optimize, and publish high-converting Facebook content.</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <!-- Video Section -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-16">
+                    <div class="aspect-w-16 aspect-h-9 relative">
+                        <div class="absolute inset-0 flex items-center justify-center bg-gray-900/10">
+                            <img src="https://placehold.co/1200x675/182D40/e0013f?text=Video+Thumbnail" alt="Video Thumbnail" class="w-full h-full object-cover">
+                            <button class="absolute inset-0 flex items-center justify-center group">
+                                <div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-play text-white text-xl"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Process Steps -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-t-4 border-primary">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary font-bold text-xl">1</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Instruct Our AI</h3>
+                        <p class="text-gray-600">Tell our AI about your brand, target audience, and content goals.</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-t-4 border-secondary">
+                        <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6 text-secondary font-bold text-xl">2</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Generate And Publish</h3>
+                        <p class="text-gray-600">Our AI creates engaging Facebook posts tailored to your specifications.</p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-t-4 border-blue-500">
+                        <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center mb-6 text-blue-500 font-bold text-xl">3</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Analyze Results</h3>
+                        <p class="text-gray-600">Track performance metrics and gain insights to improve future content.</p>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-t-4 border-green-500">
+                        <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center mb-6 text-green-500 font-bold text-xl">4</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Optimize Strategy</h3>
+                        <p class="text-gray-600">Refine your approach based on AI recommendations and performance data.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Brands Section -->
+            <div class="mt-20 text-center">
+                <p class="text-lg font-medium text-gray-600 mb-8">Trusted by leading brands and businesses</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                    <img src="https://placehold.co/160x60/f5f5f5/666666?text=SAMSUNG" alt="Samsung" class="h-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://placehold.co/160x60/f5f5f5/666666?text=GOOGLE" alt="Google" class="h-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://placehold.co/160x60/f5f5f5/666666?text=MICROSOFT" alt="Microsoft" class="h-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://placehold.co/160x60/f5f5f5/666666?text=AMAZON" alt="Amazon" class="h-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
+                    <img src="https://placehold.co/160x60/f5f5f5/666666?text=SHOPIFY" alt="Shopify" class="h-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 bg-dark text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready To Get Started?</h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">Choose the plan that's right for you and start creating amazing Facebook content today.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Pricing Card 1 -->
+                <div class="bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-t-4 border-gray-700 hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Free</h3>
+                        <div class="text-3xl font-bold mb-4">$0<span class="text-sm font-normal text-gray-400">/month</span></div>
+                        <p class="text-gray-400 mb-6">Perfect for trying out</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>3 AI Posts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Basic Templates</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-gray-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">Advanced Analytics</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-gray-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">Priority Support</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="block text-center bg-transparent border border-gray-600 text-white hover:border-primary hover:text-primary transition-colors duration-300 rounded-full py-3 px-6 font-medium">
+                            Start Free
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Pricing Card 2 -->
+                <div class="bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-t-4 border-primary hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Basic</h3>
+                        <div class="text-3xl font-bold mb-4">$29<span class="text-sm font-normal text-gray-400">/month</span></div>
+                        <p class="text-gray-400 mb-6">Great for individuals</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>10 AI Posts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>All Templates</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Basic Analytics</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-gray-600 mt-1 mr-3"></i>
+                                <span class="text-gray-600">Priority Support</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="block text-center bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg transition-all duration-300 rounded-full py-3 px-6 font-medium">
+                            Choose Plan
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Pricing Card 3 -->
+                <div class="bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-t-4 border-secondary hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pro</h3>
+                        <div class="text-3xl font-bold mb-4">$59<span class="text-sm font-normal text-gray-400">/month</span></div>
+                        <p class="text-gray-400 mb-6">Ideal for growing teams</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>15 AI Posts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Premium Copywriting</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Advanced Analytics</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Priority Support</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="block text-center bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg transition-all duration-300 rounded-full py-3 px-6 font-medium">
+                            Choose Plan
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Pricing Card 4 -->
+                <div class="bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-t-4 border-gray-700 hover:-translate-y-2">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Elite</h3>
+                        <div class="text-3xl font-bold mb-4">$79<span class="text-sm font-normal text-gray-400">/month</span></div>
+                        <p class="text-gray-400 mb-6">For professional marketers</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>20 AI Posts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Elite Copywriting</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>Premium Analytics</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-3"></i>
+                                <span>24/7 Priority Support</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="block text-center bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg transition-all duration-300 rounded-full py-3 px-6 font-medium">
+                            Choose Plan
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Customer Reviews</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">See what our users are saying about AI Marketing Pro</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-primary">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-600">Marketing Director, TechCorp</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-quote-right text-3xl text-gray-200"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Sparky AI has completely transformed our Facebook content strategy. We're now producing twice as much engaging content in half the time. The AI suggestions are spot on!"</p>
+                    <div class="flex text-primary">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-primary">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Michael Chen</h4>
+                            <p class="text-sm text-gray-600">Social Media Manager, GrowthLabs</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-quote-right text-3xl text-gray-200"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"As a social media manager handling multiple Facebook accounts, AI Marketing Pro has been a game-changer. It's like having a full content team at my fingertips. The ideas and quality are exceptional."</p>
+                    <div class="flex text-primary">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial Image -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <div class="relative rounded-xl overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Happy customer" class="w-full h-auto object-cover rounded-xl">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/40 to-secondary/40 flex items-center justify-center">
+                        <div class="text-center text-white p-6">
+                            <h3 class="text-2xl md:text-3xl font-bold mb-2">Join thousands of satisfied marketers</h3>
+                            <p class="text-lg mb-6">Experience the power of AI for your Facebook marketing</p>
+                            <a href="#" class="inline-block bg-white text-primary hover:bg-gray-100 transition-colors duration-300 rounded-full py-3 px-8 font-medium">Get Started Today</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why You Need Our AI</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover how our AI can transform your Facebook marketing</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Feature Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Content Creation" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/60 to-secondary/60"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">Drop Traditional Ways of Content Creation</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">Say goodbye to hours spent brainstorming and creating Facebook posts. Our AI generates engaging, on-brand content in seconds.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-secondary transition-colors duration-300">
+                            Learn more <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Feature Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Team Collaboration" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/60 to-secondary/60"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">Empower All Teams With AI</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">Give your entire marketing team access to powerful AI tools that help create, optimize, and schedule Facebook content that drives results.</p>
+                        <a href="#" class="inline-block text-primary font-medium hover:text-secondary transition-colors duration-300">
+                            Learn more <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-16 bg-bglight">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Contact Info -->
+                    <div class="bg-gradient-to-br from-primary to-secondary text-white p-8 lg:p-12">
+                        <h2 class="text-3xl font-bold mb-6">Ready To Elevate Your Writing?</h2>
+                        <p class="text-lg mb-8 opacity-90">Get in touch with our team to learn how AI Marketing Pro can transform your Facebook content strategy.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-white/20 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email Us</h4>
+                                    <p class="opacity-90">hello@aimarketingpro.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-white/20 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Call Us</h4>
+                                    <p class="opacity-90">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-white/20 p-3 rounded-full hover:bg-white/30 transition-all duration-300">
+                                    <i class="fab fa-twitter text-white"></i>
+                                </a>
+                                <a href="#" class="bg-white/20 p-3 rounded-full hover:bg-white/30 transition-all duration-300">
+                                    <i class="fab fa-facebook-f text-white"></i>
+                                </a>
+                                <a href="#" class="bg-white/20 p-3 rounded-full hover:bg-white/30 transition-all duration-300">
+                                    <i class="fab fa-instagram text-white"></i>
+                                </a>
+                                <a href="#" class="bg-white/20 p-3 rounded-full hover:bg-white/30 transition-all duration-300">
+                                    <i class="fab fa-linkedin-in text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="p-8 lg:p-12">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="John Doe" required>
+                                <div id="nameError" class="text-red-500 text-sm mt-1 hidden">Please enter your name</div>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="john@example.com" required>
+                                <div id="emailError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid email address</div>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="How can we help with your Facebook marketing?" required></textarea>
+                                <div id="messageError" class="text-red-500 text-sm mt-1 hidden">Please enter your message</div>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300 font-medium">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="img/logo.png" alt="AI Marketing Pro Logo" class="h-8 mr-2">
+                        <span class="text-xl font-bold">AI Marketing Pro</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Revolutionizing Facebook marketing with the power of artificial intelligence. Create engaging, high-quality posts in seconds.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">How It Works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Facebook Marketing Tips</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">API Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Community</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Subscribe to Our Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Get the latest Facebook marketing tips and updates delivered straight to your inbox.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email address" class="px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent flex-grow bg-gray-800 border-gray-700 text-white">
+                        <button type="submit" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-r-lg transition-colors duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <hr class="border-gray-800 my-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2023 AI Marketing Pro. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
